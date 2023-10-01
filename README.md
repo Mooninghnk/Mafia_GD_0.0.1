@@ -1,0 +1,2 @@
+# Mafia_GD_0.0.1
+ ALPHA VERSION OF THE GAME
