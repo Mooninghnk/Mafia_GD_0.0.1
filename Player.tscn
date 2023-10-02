@@ -1,0 +1,81 @@
+[gd_scene load_steps=9 format=3 uid="uid://0m3a7juha07c"]
+
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_opk6q"]
+[ext_resource type="Texture2D" uid="uid://7klnyu78lhev" path="res://addons/kenney_particle_pack/circle_05.png" id="2_r34ce"]
+[ext_resource type="Script" path="res://hand.gd" id="3_kh0xj"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5qiet"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cgx6s"]
+height = 1.42325
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fys1g"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vkh0d"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_oe245"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/sync = true
+properties/1/watch = false
+properties/2/path = NodePath("Neck/Head/eyes/Camera3D:rotation")
+properties/2/spawn = true
+properties/2/sync = true
+properties/2/watch = false
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+script = ExtResource("1_opk6q")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01443, 0)
+layers = 2
+mesh = SubResource("CapsuleMesh_5qiet")
+
+[node name="crouch_colsion" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.714282, 0)
+shape = SubResource("CapsuleShape3D_cgx6s")
+disabled = true
+
+[node name="standing_colision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_fys1g")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 2, 0)
+
+[node name="Neck" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+
+[node name="Head" type="Node3D" parent="Neck"]
+
+[node name="eyes" type="Node3D" parent="Neck/Head"]
+
+[node name="Camera3D" type="Camera3D" parent="Neck/Head/eyes"]
+
+[node name="TextureRect" type="TextureRect" parent="Neck/Head/eyes/Camera3D"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.015, 0.015)
+pivot_offset = Vector2(803, 400)
+texture = ExtResource("2_r34ce")
+stretch_mode = 5
+
+[node name="hand" type="Node3D" parent="Neck/Head/eyes/Camera3D"]
+transform = Transform3D(0.120868, 0, 0, 0, 0.0952643, 0, 0, 0, 0.605822, 0.251, -0.15, -0.222)
+script = ExtResource("3_kh0xj")
+sway_left = Vector3(0, 0.1, 0)
+sway_right = Vector3(0, -0.1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Neck/Head/eyes/Camera3D/hand"]
+mesh = SubResource("BoxMesh_vkh0d")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_oe245")

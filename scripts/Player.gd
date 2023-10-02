@@ -48,11 +48,16 @@ const mouse_sens = 0.10
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 10
 
-
+func _enter_tree():
+	set_multiplayer_authority(str(name).to_int())
+	
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	if not is_multiplayer_authority(): return
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	camera_3d.current = true
 
 func _input(event):
+	if not is_multiplayer_authority(): return
 	#mouse
 		
 	if event is InputEventMouseMotion:
@@ -65,12 +70,12 @@ func _input(event):
 		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-89), deg_to_rad(89))
 	
 func _physics_process(delta):
+	if not is_multiplayer_authority(): return
 	#handeling player movement
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	
-	if Input.is_action_just_pressed("esc"):
-		get_tree().quit()
-	
+
+		
 	#crouching
 	if Input.is_action_pressed("crouch") and is_on_floor():
 		current_speed = crouching_speed
@@ -94,7 +99,7 @@ func _physics_process(delta):
 		
 		if Input.is_action_pressed("sprint"):
 			#sprinting
-			current_speed = sprinting_speed
+			current_speed = lerp(current_speed,sprinting_speed, delta*lerp_speed)
 			walking = false
 			sprinting = true
 			crouching = false
@@ -115,6 +120,8 @@ func _physics_process(delta):
 		neck.rotation.y = lerp(neck.rotation.y, 0.0, delta*lerp_speed)
 		camera_3d.rotation.z = lerp(camera_3d.rotation.z, 0.0, delta*lerp_speed)
 		
+		
+
 		
 	#handle headbob
 	if sprinting:

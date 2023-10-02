@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bvb62ct1xv4tj"]
+[gd_scene load_steps=8 format=3 uid="uid://bvb62ct1xv4tj"]
 
 [ext_resource type="Texture2D" uid="uid://cf7hlt1i23isn" path="res://assets/texture_07.png" id="1_1edie"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_m0q3o"]
 [ext_resource type="Texture2D" uid="uid://dwtrwojn0hsw1" path="res://assets/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="2_hn58f"]
-[ext_resource type="Script" path="res://scripts/Player.gd" id="3_xpw4d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_frsr1"]
 albedo_texture = ExtResource("1_1edie")
@@ -20,13 +20,9 @@ sky = SubResource("Sky_2tqev")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yn5m0"]
-height = 1.42325
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t5mpx"]
-
 [node name="World" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0155478, 0.00730515, 0.00831866)
+script = ExtResource("1_m0q3o")
 
 [node name="Stage" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00544667, -0.00779378, -0.0060389)
@@ -54,26 +50,53 @@ environment = SubResource("Environment_p4aam")
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Player" type="CharacterBody3D" parent="."]
-script = ExtResource("3_xpw4d")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="crouch_colsion" type="CollisionShape3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.714282, 0)
-shape = SubResource("CapsuleShape3D_yn5m0")
-disabled = true
+[node name="MainMenu" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 423.0
+offset_top = 209.0
+offset_right = -423.0
+offset_bottom = -209.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+metadata/_edit_use_anchors_ = true
 
-[node name="standing_colision" type="CollisionShape3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_t5mpx")
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MainMenu"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
 
-[node name="RayCast3D" type="RayCast3D" parent="Player"]
-target_position = Vector3(0, 2, 0)
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
 
-[node name="Neck" type="Node3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+[node name="Label" type="Label" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Main Menu"
 
-[node name="Head" type="Node3D" parent="Player/Neck"]
+[node name="HostButton" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "HOST"
 
-[node name="eyes" type="Node3D" parent="Player/Neck/Head"]
+[node name="JoinButton" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Join"
 
-[node name="Camera3D" type="Camera3D" parent="Player/Neck/Head/eyes"]
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "enter address to join"
+alignment = 1
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://Player.tscn")
+spawn_path = NodePath("..")
+
+[connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
