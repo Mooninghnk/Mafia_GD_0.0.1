@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3ht4vshstuvp"]
+
+[ext_resource type="PackedScene" uid="uid://diub5q12vxi8l" path="res://assets/T-Pose.fbx" id="1_00ble"]
+
+[node name="T-Pose" instance=ExtResource("1_00ble")]

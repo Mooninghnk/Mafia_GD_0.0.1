@@ -41,6 +41,12 @@ use_collision = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.161515, 1.86499, -5.99981)
 use_collision = true
 
+[node name="Floor2" type="CSGBox3D" parent="Stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.42891, 18.524)
+use_collision = true
+size = Vector3(12.2884, 0.347058, 14.1455)
+material = SubResource("StandardMaterial3D_frsr1")
+
 [node name="env" type="Node3D" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="env"]

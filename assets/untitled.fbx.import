@@ -1,0 +1,40 @@
+[remap]
+
+importer="animation_library"
+importer_version=1
+type="AnimationLibrary"
+uid="uid://qid2m0vsuhor"
+path="res://.godot/imported/untitled.fbx-52b3ac6355c7ffb4c0fe5c4864318500.res"
+
+[deps]
+
+source_file="res://assets/untitled.fbx"
+dest_files=["res://.godot/imported/untitled.fbx-52b3ac6355c7ffb4c0fe5c4864318500.res"]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+import_script/path=""
+_subresources={
+"nodes": {
+"PATH:RootNode/Armature_002/Skeleton3D": {
+"retarget/bone_map": Object(BoneMap,"resource_local_to_scene":false,"resource_name":"","profile":Object(SkeletonProfileHumanoid,"resource_local_to_scene":false,"resource_name":"","root_bone":&"Root","scale_base_bone":&"Hips","group_size":4,"bone_size":56,"script":null)
+,"bonemap":null,"bone_map/Root":&"","bone_map/Hips":&"Low_Poly_Male_body_Hips","bone_map/Spine":&"Low_Poly_Male_body_Spine","bone_map/Chest":&"Low_Poly_Male_body_Spine1","bone_map/UpperChest":&"Low_Poly_Male_body_Spine2","bone_map/Neck":&"Low_Poly_Male_body_Neck","bone_map/Head":&"Low_Poly_Male_body_Head","bone_map/LeftEye":&"","bone_map/RightEye":&"","bone_map/Jaw":&"","bone_map/LeftShoulder":&"Low_Poly_Male_body_LeftShoulder","bone_map/LeftUpperArm":&"","bone_map/LeftLowerArm":&"Low_Poly_Male_body_LeftArm","bone_map/LeftHand":&"Low_Poly_Male_body_LeftHand","bone_map/LeftThumbMetacarpal":&"Low_Poly_Male_body_LeftHandThumb3","bone_map/LeftThumbProximal":&"Low_Poly_Male_body_LeftHandThumb4","bone_map/LeftThumbDistal":&"Low_Poly_Male_body_LeftHandThumb4_end","bone_map/LeftIndexProximal":&"Low_Poly_Male_body_LeftHandIndex3","bone_map/LeftIndexIntermediate":&"Low_Poly_Male_body_LeftHandIndex4","bone_map/LeftIndexDistal":&"Low_Poly_Male_body_LeftHandIndex4_end","bone_map/LeftMiddleProximal":&"Low_Poly_Male_body_LeftHandMiddle3","bone_map/LeftMiddleIntermediate":&"Low_Poly_Male_body_LeftHandMiddle4","bone_map/LeftMiddleDistal":&"Low_Poly_Male_body_LeftHandMiddle4_end","bone_map/LeftRingProximal":&"Low_Poly_Male_body_LeftHandRing3","bone_map/LeftRingIntermediate":&"Low_Poly_Male_body_LeftHandRing4","bone_map/LeftRingDistal":&"Low_Poly_Male_body_LeftHandRing4_end","bone_map/LeftLittleProximal":&"Low_Poly_Male_body_LeftHandPinky3","bone_map/LeftLittleIntermediate":&"Low_Poly_Male_body_LeftHandPinky4","bone_map/LeftLittleDistal":&"Low_Poly_Male_body_LeftHandPinky4_end","bone_map/RightShoulder":&"Low_Poly_Male_body_RightShoulder","bone_map/RightUpperArm":&"","bone_map/RightLowerArm":&"Low_Poly_Male_body_RightArm","bone_map/RightHand":&"Low_Poly_Male_body_RightHand","bone_map/RightThumbMetacarpal":&"Low_Poly_Male_body_RightHandThumb3","bone_map/RightThumbProximal":&"Low_Poly_Male_body_RightHandThumb4","bone_map/RightThumbDistal":&"Low_Poly_Male_body_RightHandThumb4_end","bone_map/RightIndexProximal":&"Low_Poly_Male_body_RightHandIndex3","bone_map/RightIndexIntermediate":&"Low_Poly_Male_body_RightHandIndex4","bone_map/RightIndexDistal":&"Low_Poly_Male_body_RightHandIndex4_end","bone_map/RightMiddleProximal":&"Low_Poly_Male_body_RightHandMiddle3","bone_map/RightMiddleIntermediate":&"Low_Poly_Male_body_RightHandMiddle4","bone_map/RightMiddleDistal":&"Low_Poly_Male_body_RightHandMiddle4_end","bone_map/RightRingProximal":&"Low_Poly_Male_body_RightHandRing3","bone_map/RightRingIntermediate":&"Low_Poly_Male_body_RightHandRing4","bone_map/RightRingDistal":&"Low_Poly_Male_body_RightHandRing4_end","bone_map/RightLittleProximal":&"Low_Poly_Male_body_RightHandPinky3","bone_map/RightLittleIntermediate":&"Low_Poly_Male_body_RightHandPinky4","bone_map/RightLittleDistal":&"Low_Poly_Male_body_RightHandPinky4_end","bone_map/LeftUpperLeg":&"Low_Poly_Male_body_LeftUpLeg","bone_map/LeftLowerLeg":&"Low_Poly_Male_body_LeftLeg","bone_map/LeftFoot":&"Low_Poly_Male_body_LeftFoot","bone_map/LeftToes":&"Low_Poly_Male_body_LeftToeBase","bone_map/RightUpperLeg":&"Low_Poly_Male_body_RightUpLeg","bone_map/RightLowerLeg":&"Low_Poly_Male_body_RightLeg","bone_map/RightFoot":&"Low_Poly_Male_body_RightFoot","bone_map/RightToes":&"Low_Poly_Male_body_RightToeBase","script":null)
+
+}
+}
+}
+gltf/embedded_image_handling=1

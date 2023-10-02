@@ -14,10 +14,10 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
-func _unhandled_input(event):
+func _unhandled_input(_event):
 	if Input.is_action_just_pressed("esc"):
 		get_tree().quit()
 
@@ -32,7 +32,7 @@ func _on_host_button_pressed():
 	
 	add_player(multiplayer.get_unique_id())
 	
-	
+
 
 func _on_join_button_pressed():
 	main_menu.hide()
